@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SallesWebMvc.Models;
 using System.Diagnostics;
+using SallesWebMvc.Models.ViewModels;
 
 namespace SallesWebMvc.Controllers
 {

@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SallesWebMvc.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionStr = "server=localhost;userid=DevNatan;password=24101966n;database=testdatabase";
+builder.Services.AddDbContext<SallesWebMvcContext>(options =>
+        options.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr)));
+//options.UseSqlServer(builder.Configuration.GetConnectionString("SallesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SallesWebMvcContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
