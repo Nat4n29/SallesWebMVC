@@ -1,0 +1,41 @@
+﻿@model SallesWebMvc.Models.ViewModels.SellerFromViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h2>Seller</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Seller.Id" />
+            <div class="list-group">
+                <label asp-for="Seller.Name" class="col-form-label"></label>
+                <input asp-for="Seller.Name" class="form-control" />
+            </div>
+            <div class="list-group">
+                <label asp-for="Seller.Email" class="col-form-label"></label>
+                <input asp-for="Seller.Email" class="form-control" />
+            </div>
+            <div class="list-group">
+                <label asp-for="Seller.BirthDate" class="col-form-label"></label>
+                <input asp-for="Seller.BirthDate" class="form-control" />
+            </div>
+            <div class="list-group">
+                <label asp-for="Seller.BaseSalary" class="col-form-label"></label>
+                <input asp-for="Seller.BaseSalary" class="form-control" />
+            </div>
+            <div class="list-group">
+                <label asp-for="Seller.DepartmentsId" class="col-form-label"></label>
+                <select asp-for="Seller.DepartmentsId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"><</select>
+            </div>
+            <p></p>
+            <div class="list-group">
+                <input type="submit" value="Save" class="btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
