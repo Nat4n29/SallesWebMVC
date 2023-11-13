@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SallesWebMvc.Data;
 
@@ -10,9 +11,10 @@ using SallesWebMvc.Data;
 namespace SallesWebMvc.Migrations
 {
     [DbContext(typeof(SallesWebMvcContext))]
-    partial class SallesWebMvcContextModelSnapshot : ModelSnapshot
+    [Migration("20231113043017_DepartmentsUpdated")]
+    partial class DepartmentsUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,13 +104,13 @@ namespace SallesWebMvc.Migrations
 
             modelBuilder.Entity("SallesWebMvc.Models.Seller", b =>
                 {
-                    b.HasOne("SallesWebMvc.Models.Departments", "Departments")
+                    b.HasOne("SallesWebMvc.Models.Departments", "Department")
                         .WithMany("Sellers")
                         .HasForeignKey("DepartmentsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Departments");
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("SallesWebMvc.Models.Departments", b =>

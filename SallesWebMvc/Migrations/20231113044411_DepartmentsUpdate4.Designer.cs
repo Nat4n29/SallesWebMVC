@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SallesWebMvc.Data;
 
@@ -10,9 +11,10 @@ using SallesWebMvc.Data;
 namespace SallesWebMvc.Migrations
 {
     [DbContext(typeof(SallesWebMvcContext))]
-    partial class SallesWebMvcContextModelSnapshot : ModelSnapshot
+    [Migration("20231113044411_DepartmentsUpdate4")]
+    partial class DepartmentsUpdate4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

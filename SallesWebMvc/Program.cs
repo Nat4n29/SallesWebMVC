@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SallesWebMvc.Data;
+using SallesWebMvc.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionStr = "server=localhost;userid=DevNatan;password=24101966n;database=testdatabase";
 builder.Services.AddDbContext<SallesWebMvcContext>(options =>
@@ -9,6 +11,8 @@ builder.Services.AddDbContext<SallesWebMvcContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddScoped<SellerService>();
 
 var app = builder.Build();
 
