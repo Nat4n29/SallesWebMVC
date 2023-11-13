@@ -1,4 +1,5 @@
-﻿using SallesWebMvc.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SallesWebMvc.Data;
 using SallesWebMvc.Models;
 
 namespace SallesWebMvc.Services
@@ -26,7 +27,7 @@ namespace SallesWebMvc.Services
 
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(s => s.Id == id);
+            return _context.Seller.Include(s => s.Departments).FirstOrDefault(s => s.Id == id);
         }
 
         public void Remove(int id)
