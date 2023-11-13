@@ -13,6 +13,7 @@ builder.Services.AddDbContext<SallesWebMvcContext>(options =>
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddScoped<SellerService>();
+builder.Services.AddScoped<DepartmentsService>();
 
 var app = builder.Build();
 

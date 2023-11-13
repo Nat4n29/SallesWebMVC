@@ -3,23 +3,22 @@ using SallesWebMvc.Models;
 
 namespace SallesWebMvc.Services
 {
-    public class SellerService
+    public class DepartmentsService
     {
         private readonly SallesWebMvcContext _context;
 
-        public SellerService(SallesWebMvcContext context)
+        public DepartmentsService(SallesWebMvcContext context)
         {
             _context = context;
         }
 
-        public List<Seller> FindAll()
+        public List<Departments> FindAll()
         {
-            return _context.Seller.ToList();
+            return _context.Departments.OrderBy(d => d.Name).ToList();
         }
 
-        public void Insert(Seller obj)
+        public void Insert(Departments obj)
         {
-            //obj.Departments = _context.Departments.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
